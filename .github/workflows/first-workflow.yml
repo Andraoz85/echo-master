@@ -6,6 +6,6 @@ jobs:
     steps: 
      - name: Step 1
        run: |
-        echo "Repository name: $GITHUB REPOSITORY"
-        echo "Branch or tag reference: $GITHUB REF"
-        echo "Commit SHA: $GITHUB SHA"
+        echo "Repository name: $GITHUB_REPOSITORY"
+        echo "Branch or tag reference: $GITHUB_REF"
+        echo "Commit SHA: $GITHUB_SHA"
