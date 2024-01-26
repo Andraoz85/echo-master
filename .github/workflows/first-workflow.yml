@@ -1,0 +1,11 @@
+name: first workflow
+on: workflow_dispatch
+jobs:
+ print-github:
+    runs-on: ubuntu-latest
+    steps: 
+     - name: Step 1
+       run: |
+        echo "Repository name: $GITHUB REPOSITORY"
+        echo "Branch or tag reference: $GITHUB REF"
+        echo "Commit SHA: $GITHUB SHA"
