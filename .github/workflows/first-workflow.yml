@@ -14,3 +14,6 @@ jobs:
      - name: Step 2
        run: |
         echo "Custom Variable: $CUSTOM_VAR"
+     - name: Step 3
+       run: |
+        echo "My Secret: ${{ secrets.MY_SECRET }}"
