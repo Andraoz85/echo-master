@@ -18,3 +18,9 @@ jobs:
      run: echo "Running tests now..."
    - name: Test code
      run: dotnet test --no-build --verbosity normal
+   - name: Print Test Ok message
+     if: success()
+     run: echo "Tests completed"
+   - name: Print Test Failed message
+     if: failure()
+     run: echo "Tests failed"
