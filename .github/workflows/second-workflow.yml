@@ -15,4 +15,6 @@ jobs:
    - name: Build
      run: dotnet build --no-restore
    - name: Print message
-     run: echo "All is OK!"
+     run: echo "Running tests now..."
+   - name: Test code
+     run: dotnet test --no-build --verbosity normal
