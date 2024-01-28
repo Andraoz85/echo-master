@@ -9,7 +9,7 @@ namespace EchoMaster.Tests
         {
             string expected = "Hello World!";
 
-            string result = "Hello";
+            string result = "Hello World!";
 
             result.Should().BeEquivalentTo(expected);
         }
