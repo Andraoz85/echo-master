@@ -1,26 +1,32 @@
 name: Second workflow
 on: push
 jobs:
- test-project:
-  runs-on: ubuntu-latest
-  steps:
-   - name: Checkout
-     uses: actions/checkout@v4.1.1
-   - name: Setup .NET
-     uses: actions/setup-dotnet@v4.0.0
-     with:
-      dotnet-version: '8'
-   - name: Setup Dependencies
-     run: dotnet restore
-   - name: Build
-     run: dotnet build --no-restore
-   - name: Print message
-     run: echo "Running tests now..."
-   - name: Test code
-     run: dotnet test --no-build --verbosity normal
-   - name: Print Test Ok message
-     if: success()
-     run: echo "Tests completed"
-   - name: Print Test Failed message
-     if: failure()
-     run: echo "Tests failed"
+  test-project:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.1
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4.0.0
+        with:
+          dotnet-version: '8'
+      - name: Setup Dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --no-restore
+      - name: Print message
+        run: echo "Running tests now..."
+      - name: Test code
+        run: dotnet test --no-build --verbosity normal
+      - name: Print Test Ok message
+        if: success()
+        run: echo "Tests ok"
+      - name: Print Test Failed message
+        if: failure()
+        run: echo "Tests failed"
+  print-success-message:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print success message
+        if: jobs.test-project.outcome == 'success'
+        run: echo "Tests succeeded"
