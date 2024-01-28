@@ -24,9 +24,9 @@ jobs:
       - name: Print Test Failed message
         if: failure()
         run: echo "Tests failed"
-  print-success-message:
+  print-success-message: # printa ett meddelande efter föregående jobb är klart
+    needs: test-project
     runs-on: ubuntu-latest
     steps:
       - name: Print success message
-        if: jobs.test-project.outcome == 'success'
         run: echo "Tests succeeded"
