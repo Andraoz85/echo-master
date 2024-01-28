@@ -30,9 +30,3 @@ jobs:
     steps:
       - name: Print success message
         run: echo "Tests succeeded"
-  print-failure-message: # printa ett meddelande efter föregående jobb är klart
-    needs: test-project
-    runs-on: ubuntu-latest
-    steps:
-      - name: Print failure message
-        run: echo "Tests failed"
