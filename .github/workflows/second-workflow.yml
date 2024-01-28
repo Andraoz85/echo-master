@@ -18,6 +18,12 @@ jobs:
         run: echo "Running tests now..."
       - name: Test code
         run: dotnet test --no-build --verbosity normal
+      - name: Print OK message
+        if: success()
+        run: echo "Tests OK"
+      - name: Print FAIL message
+        if: failure()
+        run: echo "Tests failed"
   print-success-message: # printa ett meddelande efter föregående jobb är klart
     runs-on: ubuntu-latest
     needs: test-project
